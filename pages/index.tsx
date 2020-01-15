@@ -1,11 +1,7 @@
 import React from "react";
-import MainComponent from "../src/components/MainComponent/MainComponent";
+import Layout from "../src/components/Layout/Layout";
 
 const Page: React.FunctionComponent = () => {
-  return (
-    <MainComponent firstName="hallo" lastName="Hoang" age={23}>
-      <h1>hallo</h1>
-    </MainComponent>
-  );
+  return <Layout></Layout>;
 };
 export default Page;

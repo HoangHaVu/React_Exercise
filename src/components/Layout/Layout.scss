@@ -1,0 +1,17 @@
+.layout{
+    display : grid;
+    grid-template-columns: 1fr 30%;
+    background-color: red;
+
+}
+.detail{
+background-color: green;
+}
+
+.overview{
+background-color: yellow;
+}
+
+.control{
+background-color: blue;
+}
