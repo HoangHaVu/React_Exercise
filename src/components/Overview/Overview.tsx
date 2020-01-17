@@ -19,7 +19,7 @@ const Overview: React.FunctionComponent = () => {
   ];
   return (
     <Card>
-      <h1>Detail</h1>
+      <h1>Overview</h1>
       {characters &&
         characters.map(char => {
           return (

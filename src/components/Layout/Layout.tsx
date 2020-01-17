@@ -1,4 +1,4 @@
-import React,{Component} from "react";
+import React from "react";
 import css from "./Layout.scss";
 import Control from "../Control/Control";
 import Detail from "../Detail/Detail";

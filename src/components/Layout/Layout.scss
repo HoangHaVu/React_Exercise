@@ -1,8 +1,28 @@
 .layout {
   display: grid;
-  grid-template-columns: 1fr 30%;
   grid-gap: 1rem;
+  grid-template-columns: 1fr 30%;
+  grid-template-rows: auto;
+  grid-template-areas: 
+  "detail control"
+  "overview overview";
+   
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "control"
+    "overview"
+    "detail";
+      
+  }
 }
 .control{
-  align-self: stretch;
+  grid-area: control;
+}
+.overview{
+  grid-area: overview;
+
+}
+.detail{
+  grid-area: detail;
 }
