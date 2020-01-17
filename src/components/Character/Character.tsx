@@ -1,4 +1,5 @@
 import React from "react";
+import css from "./Character.scss"
 
 interface CharacterProps{
     playerName: string;
@@ -8,10 +9,10 @@ interface CharacterProps{
 
 const Character : React.FunctionComponent<CharacterProps>=({playerName,realName,asset})=>{
     return (
-        <ul>
-            <li>{playerName}</li>
-            <li>{realName}</li>
-            <li>{asset}</li>
+        <ul className={css.list}>
+            <li>Player Name: {playerName}</li>
+            <li>Real Name:{realName}</li>
+            <li>Asset:{asset}</li>
         </ul>
     );
 }

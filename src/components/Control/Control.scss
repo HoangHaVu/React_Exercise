@@ -1,0 +1,37 @@
+.nav{
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "sortAsc  sortDesc"
+    "submit submit";
+   grid-column-gap: 1rem;
+   grid-row-gap: 1rem;
+   
+
+}
+.sortAsc{
+    grid-area: sortAsc;
+    border:none;
+    background-color: gray;
+    color:white;
+    padding: 1rem;
+    font-size: 13px;
+    border-radius: 12px;
+}
+.sortDesc{
+    grid-area: sortDesc;
+    border:none;
+    background-color: gray;
+    color:white;
+    padding: 1rem;
+    font-size: 13px;
+    border-radius: 12px;
+}
+.submit{
+    grid-area: submit;
+    padding: 1rem;
+    font-size: 13px;
+    border-radius: 12px;
+}
