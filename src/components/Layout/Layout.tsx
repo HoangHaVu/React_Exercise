@@ -4,7 +4,6 @@ import Control from "../Control/Control";
 import Detail from "../Detail/Detail";
 import Overview from "../Overview/Overview";
 
-const API ="https://api.myjson.com/bins/15rr86";
 const Layout: React.FunctionComponent = () => {
   return (
     <div className={css.layout}>

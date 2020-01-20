@@ -1,5 +1,4 @@
 import React from "react";
-import Character from "../Character/Character";
 import css from "./Card.scss";
 
 const Card: React.FunctionComponent = ({ children }) => {
