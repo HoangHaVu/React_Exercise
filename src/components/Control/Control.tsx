@@ -1,24 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "../Button/Button";
 import Card from "../Card/Card";
 import css from "./Control.scss";
 import classNames from "classnames";
 import Headline from "../Headline/Headline";
+import DataContext from "../../data/Context";
 
 const Control: React.FunctionComponent = () => {
-
+const context = useContext(DataContext.DataContext);
   function sortAsc(){
-    console.log('asc');
+    const sortArray= context.sortContextAsc;
+    console.log(sortArray);
+
   }
 
   function sortDesc(){
-    console.log('desc');
+    const sortArray = context.sortContextDesc;
+    console.log(sortArray);
   }
 
   function submit(){
-    console.log('submit');
+    const sub = context.submitContext;
+    console.log(sub);
   }
-
+  
+  
   return (
     <React.Fragment>
     <Headline text={"Control"}></Headline>

@@ -1,27 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "../Card/Card";
 import Character from "../Character/Character";
 import Headline from "../Headline/Headline";
 import css from "./Overview.scss";
+import DataContext from "../../data/Context";
 
-type CharacterType = {
-  playerName: string;
-  realName: string;
-  asset: string;
-};
 
 const Overview: React.FunctionComponent = () => {
-  const characters: Array<CharacterType> = [
-    { playerName: "a", realName: "a", asset: "a" },
-    { playerName: "b", realName: "b", asset: "b" },
-    { playerName: "c", realName: "c", asset: "c" },
-    { playerName: "d", realName: "d", asset: "d" },
-    { playerName: "e", realName: "e", asset: "e" },
-    { playerName: "f", realName: "f", asset: "f" },
-    { playerName: "g", realName: "g", asset: "g" },
-    { playerName: "h", realName: "h", asset: "h" }
-    
-  ];
+  const context=useContext(DataContext.DataContext);
+  const characters=context.value;
+  console.log(characters);
   return (
     <React.Fragment>
       <Headline text={"Overview"}></Headline>
