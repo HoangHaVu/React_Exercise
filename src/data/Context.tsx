@@ -20,6 +20,10 @@ export type CharacterType = {
     asset: string;
   };
 
+interface Heros {
+  heros: CharacterType[];
+}
+
 interface ContextProps{
     value:CharacterType[];
     sortContextDesc:Function;
@@ -54,7 +58,10 @@ const DataContext = React.createContext<ContextProps>({
 const Provider:React.FunctionComponent<ContextProps>=({children})=>{
     
 
-    const {loading,error,data} = useQuery(QUERY);
+    const {loading,error,data} = useQuery<Heros>(QUERY);
+    if(loading){
+      return <div>loading</div>;
+    }
     console.log(data,loading);
     const sortAsc=()=>{
         let sortArray = [...characters];
@@ -98,7 +105,7 @@ const Provider:React.FunctionComponent<ContextProps>=({children})=>{
     }
 
 
-return <DataContext.Provider value={{value:characters,sortContextAsc:sortAsc,sortContextDesc:sortDesc,submitContext:submit}}>{children}</DataContext.Provider>
+return <DataContext.Provider value={{value:data.heros!,sortContextAsc:sortAsc,sortContextDesc:sortDesc,submitContext:submit}}>{children}</DataContext.Provider>
 };
 
 

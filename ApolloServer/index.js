@@ -1,7 +1,7 @@
 const { ApolloServer, gql } = require('apollo-server');
 
 const heros = [
-    { id:1 ,playerName: "a", realName: "a", asset: "a" },
+    { id:1 ,playerName: "hallo", realName: "hallo", asset: "blaabla" },
     { id:2 ,playerName: "b", realName: "b", asset: "b" },
     { id:3 ,playerName: "c", realName: "c", asset: "c" },
     { id:4 ,playerName: "d", realName: "d", asset: "d" },
