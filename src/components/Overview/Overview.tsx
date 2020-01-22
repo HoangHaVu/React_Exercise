@@ -8,9 +8,7 @@ import DataContext from "../../data/Context";
 
 const Overview: React.FunctionComponent = () => {
   const context=useContext(DataContext.DataContext);
-  const characters=context.value;
-  console.log(characters);
-  
+  const characters=context.getDataContext();  
   return (
     <React.Fragment>
       <Headline text={"Overview"}></Headline>
