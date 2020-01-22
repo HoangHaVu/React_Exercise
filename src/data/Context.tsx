@@ -1,4 +1,18 @@
 import React from "react";
+import {useQuery} from "@apollo/react-hooks";
+import {gql} from "apollo-boost";
+
+const QUERY =gql `
+query{
+  heros{
+    playerName
+    realName
+    asset
+  }
+    
+  }
+`;
+
 
 export type CharacterType = {
     playerName: string;
@@ -12,6 +26,7 @@ interface ContextProps{
     sortContextAsc:Function;
     submitContext:Function;
 }
+
 const characters: Array<CharacterType> = [
     { playerName: "a", realName: "a", asset: "a" },
     { playerName: "b", realName: "b", asset: "b" },
@@ -39,6 +54,8 @@ const DataContext = React.createContext<ContextProps>({
 const Provider:React.FunctionComponent<ContextProps>=({children})=>{
     
 
+    const {loading,error,data} = useQuery(QUERY);
+    console.log(data,loading);
     const sortAsc=()=>{
         let sortArray = [...characters];
         sortArray.sort(function(a, b) {
@@ -54,6 +71,7 @@ const Provider:React.FunctionComponent<ContextProps>=({children})=>{
             // Namen müssen gleich sein
             return 0;
           });
+       
         return sortArray;  
     }
 
@@ -72,6 +90,7 @@ const Provider:React.FunctionComponent<ContextProps>=({children})=>{
             // Namen müssen gleich sein
             return 0;
           });
+        
           return sortArray;
     }
     const submit=()=>{

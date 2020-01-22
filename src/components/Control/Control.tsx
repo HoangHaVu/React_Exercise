@@ -9,18 +9,18 @@ import DataContext from "../../data/Context";
 const Control: React.FunctionComponent = () => {
 const context = useContext(DataContext.DataContext);
   function sortAsc(){
-    const sortArray= context.sortContextAsc;
+    const sortArray= context.sortContextAsc();
     console.log(sortArray);
 
   }
 
   function sortDesc(){
-    const sortArray = context.sortContextDesc;
+    const sortArray = context.sortContextDesc();
     console.log(sortArray);
   }
 
   function submit(){
-    const sub = context.submitContext;
+    const sub = context.submitContext();
     console.log(sub);
   }
   
