@@ -9,7 +9,7 @@ import client from "../src/ApolloClient/apollo_client"
 const Page: React.FunctionComponent = () => {
   return (
   <ApolloProvider client ={client}>
-  <DataContext.Provider value={[]} sortContextAsc={()=>{}} sortContextDesc={()=>{}} submitContext={()=>{}} getDataContext={()=>{}}>
+  <DataContext.Provider value={[]} sortContextAsc={()=>{}} sortContextDesc={()=>{}} submitContext={()=>{}} getDataContext={()=>{}} selectCardContext={()=>{}} selectedCard={null}>
   <Layout/>
   </DataContext.Provider>
   </ApolloProvider>  

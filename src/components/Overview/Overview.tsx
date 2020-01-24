@@ -6,9 +6,14 @@ import css from "./Overview.scss";
 import DataContext from "../../data/Context";
 
 
+
+
 const Overview: React.FunctionComponent = () => {
   const context=useContext(DataContext.DataContext);
-  const characters=context.getDataContext();  
+  const characters=context.getDataContext();
+  
+
+
   return (
     <React.Fragment>
       <Headline text={"Overview"}></Headline>
@@ -16,8 +21,8 @@ const Overview: React.FunctionComponent = () => {
         {characters &&
           characters.map(char => {
             return (
-              <div className={css.card}>
-              <Card>
+              <div className={css.card} onClick={()=>{context.selectCardContext(char)}}>
+              <Card >
               <Character
                 playerName={char.playerName}
                 realName={char.realName}

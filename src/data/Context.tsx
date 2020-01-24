@@ -28,18 +28,27 @@ interface ContextProps {
   sortContextAsc: Function;
   submitContext: Function;
   getDataContext: Function;
+  selectCardContext: Function;
+  selectedCard:CharacterType;
+
 }
+
+const defaultDetail:CharacterType = {playerName:"asdas", realName:"asdas",asset:"asdasd"};
 
 const DataContext = React.createContext<ContextProps>({
   value: [],
   sortContextDesc: () => {},
   sortContextAsc: () => {},
   submitContext: () => {},
-  getDataContext: () => {}
+  getDataContext: () => {},
+  selectCardContext: () => {},
+  selectedCard: defaultDetail
 });
+
 
 const Provider: React.FunctionComponent<ContextProps> = ({ children }) => {
   const [state,newData]=useState([]);
+  const [selectedCardState,SelectedProduct] = useState<CharacterType>({playerName:"asdas", realName:"asdas",asset:"asdasd"});
   const client = useApolloClient();
   // const { loading, error, data } = useQuery<Heros>(QUERY);
   // if (loading) {
@@ -48,6 +57,7 @@ const Provider: React.FunctionComponent<ContextProps> = ({ children }) => {
   useEffect(() => {
     client.query<Heros>({query: QUERY}).then(result => newData(() => result.data.heros));
   }, [])
+ 
  
   const sortAsc = () => {
     let sortArray = [...state];
@@ -60,13 +70,20 @@ const Provider: React.FunctionComponent<ContextProps> = ({ children }) => {
       if (nameA > nameB) {
         return 1;
       }
-
+ 
       // Namen müssen gleich sein
       return 0;
     });
 
     newData(sortArray);
   };
+
+  const selectCard =(card:CharacterType) =>{
+      SelectedProduct(card);
+      console.log(card);
+  }
+
+
 
   const sortDesc = () => {
     let sortArray = [...state];
@@ -99,7 +116,9 @@ const Provider: React.FunctionComponent<ContextProps> = ({ children }) => {
         sortContextAsc: sortAsc,
         sortContextDesc: sortDesc,
         submitContext: submit,
-        getDataContext: getData
+        getDataContext: getData,
+        selectCardContext:selectCard,
+        selectedCard: selectedCardState,
       }}
     >
       {children}
