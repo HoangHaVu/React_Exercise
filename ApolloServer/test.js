@@ -4,38 +4,34 @@ const { ApolloServer, gql } = require('apollo-server');
 // that together define the "shape" of queries that are executed against
 // your data.
 const books = [
-    {
-      id:0,  
-      title: 'Harry Potter and the Chamber of Secrets',
-      author: 'J.K. Rowling',
-    },
-    { id:1,
-      title: 'Jurassic Park',
-      author: 'Michael Crichton',
-    },
-  ];
+  {
+    id: 0,
+    title: 'Harry Potter and the Chamber of Secrets',
+    author: 'J.K. Rowling',
+  },
+  { id: 1, title: 'Jurassic Park', author: 'Michael Crichton' },
+];
 
-  const resolvers = {
-    Query: {
-      books: () => books,
-      book: (parents,args)=>{    
-          
-        for (bk of books){
-            if(bk.id===Number.parseInt(args.id)){
-              return bk;
-            }
+const resolvers = {
+  Query: {
+    books: () => books,
+    book: (parents, args) => {
+      for (bk of books) {
+        if (bk.id === Number.parseInt(args.id)) {
+          return bk;
         }
-        return null;
-      },
+      }
+      return null;
     },
-  };
- 
+  },
+};
+
 const schema = gql`
   # Comments in GraphQL strings (such as this one) start with the hash (#) symbol.
 
   # This "Book" type defines the queryable fields for every book in our data source.
   type Book {
-    id:ID!
+    id: ID!
     title: String
     author: String
   }

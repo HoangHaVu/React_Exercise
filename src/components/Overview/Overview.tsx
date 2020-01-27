@@ -1,35 +1,41 @@
-import React, { useContext } from "react";
-import Card from "../Card/Card";
-import Character from "../Character/Character";
-import Headline from "../Headline/Headline";
-import css from "./Overview.scss";
-import DataContext from "../../data/Context";
-
-
-
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React, { useContext } from 'react';
+import Card from '../Card/Card';
+import Headline from '../Headline/Headline';
+import css from './Overview.scss';
+import DataContext from '../../data/Context';
+import Product from '../Product/Product';
 
 const Overview: React.FunctionComponent = () => {
-  const context=useContext(DataContext.DataContext);
-  const characters=context.getDataContext();
-  
-
+  const context = useContext(DataContext.DataContext);
+  const products = context.getDataContext();
 
   return (
     <React.Fragment>
-      <Headline text={"Overview"}></Headline>
+      <Headline text={'Overview'}></Headline>
       <div className={css.cardslayout}>
-        {characters &&
-          characters.map(char => {
+        {products &&
+          products.map(prod => {
             return (
-              <div className={css.card} onClick={()=>{context.selectCardContext(char)}}>
-              <Card >
-              <Character
-                playerName={char.playerName}
-                realName={char.realName}
-                asset={char.asset}
-              />
-              </Card>
-              </div>  
+              <div
+                role="button"
+                tabIndex={-1}
+                key={prod.productName}
+                className={css.card}
+                onClick={() => {
+                  context.selectProductContext(prod);
+                }}
+              >
+                <Card>
+                  <Product
+                    url={prod.url}
+                    productName={prod.productName}
+                    brand={prod.brand}
+                    description={prod.description}
+                    price={prod.price}
+                  />
+                </Card>
+              </div>
             );
           })}
       </div>

@@ -1,14 +1,13 @@
 .cardslayout {
-    display:grid;
-    grid-gap: 1rem;
-    grid-template-columns: repeat(4,1fr);
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .card {
-    &:hover{
-        background-color: white;
-        color:gray;
-        font-size: 16px;
-
-    }
+  &:hover {
+    background-color: white;
+    color: gray;
+    font-size: 16px;
+  }
 }

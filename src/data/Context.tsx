@@ -1,39 +1,47 @@
-import React, {useState, useEffect}from "react";
-import { useQuery, useApolloClient } from "@apollo/react-hooks";
-import { gql } from "apollo-boost";
+import React, { useState, useEffect } from 'react';
+import { useQuery, useApolloClient } from '@apollo/react-hooks';
+import { gql } from 'apollo-boost';
 
 const QUERY = gql`
   query {
-    heros {
-      playerName
-      realName
-      asset
+    products {
+      url
+      productName
+      brand
+      description
+      price
     }
   }
 `;
-
-export type CharacterType = {
-  playerName: string;
-  realName: string;
-  asset: string;
+export type ProductType = {
+  url: string;
+  productName: string;
+  brand: string;
+  description: string;
+  price: number;
 };
 
-interface Heros {
-  heros: CharacterType[];
+interface Products {
+  products: ProductType[];
 }
 
 interface ContextProps {
-  value: CharacterType[];
+  value: ProductType[];
   sortContextDesc: Function;
   sortContextAsc: Function;
   submitContext: Function;
   getDataContext: Function;
-  selectCardContext: Function;
-  selectedCard:CharacterType;
-
+  selectProductContext: Function;
+  selectedProduct: ProductType;
 }
 
-const defaultDetail:CharacterType = {playerName:"asdas", realName:"asdas",asset:"asdasd"};
+const defaultDetail: ProductType = {
+  url: '/no_picture.png',
+  productName: 'default',
+  brand: 'default',
+  description: 'asuhdiuashd',
+  price: 0,
+};
 
 const DataContext = React.createContext<ContextProps>({
   value: [],
@@ -41,36 +49,42 @@ const DataContext = React.createContext<ContextProps>({
   sortContextAsc: () => {},
   submitContext: () => {},
   getDataContext: () => {},
-  selectCardContext: () => {},
-  selectedCard: defaultDetail
+  selectProductContext: () => {},
+  selectedProduct: defaultDetail,
 });
 
-
 const Provider: React.FunctionComponent<ContextProps> = ({ children }) => {
-  const [state,newData]=useState([]);
-  const [selectedCardState,SelectedProduct] = useState<CharacterType>({playerName:"asdas", realName:"asdas",asset:"asdasd"});
+  const [state, newData] = useState([]);
+  const [selectedProductState, SelectedProduct] = useState<ProductType>({
+    url: '/no_picture.png',
+    productName: 'asdas',
+    brand: 'asdasd',
+    description: 'asdasdasd',
+    price: 0,
+  });
   const client = useApolloClient();
   // const { loading, error, data } = useQuery<Heros>(QUERY);
   // if (loading) {
   //   return <div>loading</div>; // TO DO Implementing Loading Page
   // }
   useEffect(() => {
-    client.query<Heros>({query: QUERY}).then(result => newData(() => result.data.heros));
-  }, [])
- 
- 
+    client
+      .query<Products>({ query: QUERY })
+      .then(result => newData(() => result.data.products));
+  }, [client]);
+
   const sortAsc = () => {
-    let sortArray = [...state];
+    const sortArray = [...state];
     sortArray.sort(function(a, b) {
-      var nameA = a.realName.toUpperCase(); // Groß-/Kleinschreibung ignorieren
-      var nameB = b.realName.toUpperCase(); // Groß-/Kleinschreibung ignorieren
+      const nameA = a.productName.toUpperCase(); // Groß-/Kleinschreibung ignorieren
+      const nameB = b.productName.toUpperCase(); // Groß-/Kleinschreibung ignorieren
       if (nameA < nameB) {
         return -1;
       }
       if (nameA > nameB) {
         return 1;
       }
- 
+
       // Namen müssen gleich sein
       return 0;
     });
@@ -78,18 +92,16 @@ const Provider: React.FunctionComponent<ContextProps> = ({ children }) => {
     newData(sortArray);
   };
 
-  const selectCard =(card:CharacterType) =>{
-      SelectedProduct(card);
-      console.log(card);
-  }
-
-
+  const selectedProduct = (product: ProductType) => {
+    SelectedProduct(product);
+    console.log(product);
+  };
 
   const sortDesc = () => {
-    let sortArray = [...state];
+    const sortArray = [...state];
     sortArray.sort(function(a, b) {
-      var nameA = a.realName.toUpperCase(); // Groß-/Kleinschreibung ignorieren
-      var nameB = b.realName.toUpperCase(); // Groß-/Kleinschreibung ignorieren
+      const nameA = a.productName.toUpperCase(); // Groß-/Kleinschreibung ignorieren
+      const nameB = b.productName.toUpperCase(); // Groß-/Kleinschreibung ignorieren
       if (nameA < nameB) {
         return 1;
       }
@@ -105,7 +117,6 @@ const Provider: React.FunctionComponent<ContextProps> = ({ children }) => {
   const submit = () => {};
 
   const getData = () => {
-    
     return state;
   };
 
@@ -117,8 +128,8 @@ const Provider: React.FunctionComponent<ContextProps> = ({ children }) => {
         sortContextDesc: sortDesc,
         submitContext: submit,
         getDataContext: getData,
-        selectCardContext:selectCard,
-        selectedCard: selectedCardState,
+        selectProductContext: selectedProduct,
+        selectedProduct: selectedProductState,
       }}
     >
       {children}

@@ -3,26 +3,24 @@
   grid-gap: 2rem;
   grid-template-columns: 1fr 30%;
   grid-template-rows: auto;
-  grid-template-areas: 
-  "detail control"
-  "overview overview";
-   
+  grid-template-areas:
+    'detail control'
+    'overview overview';
+
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    grid-template-areas: 
-    "control"
-    "overview"
-    "detail";
-      
+    grid-template-areas:
+      'control'
+      'overview'
+      'detail';
   }
 }
-.control{
+.control {
   grid-area: control;
 }
-.overview{
+.overview {
   grid-area: overview;
-
 }
-.detail{
+.detail {
   grid-area: detail;
 }

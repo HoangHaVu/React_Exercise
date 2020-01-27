@@ -1,24 +1,32 @@
-import React, {useContext} from "react";
-import Card from "../Card/Card";
-import Character from "../Character/Character";
-import Headline from "../Headline/Headline";
-import DataContext from "../../data/Context";
+import React, { useContext } from 'react';
+import Card from '../Card/Card';
+import Headline from '../Headline/Headline';
+import DataContext from '../../data/Context';
+import Product from '../Product/Product';
 
-export type CharacterType = {
-  playerName: string;
-  realName: string;
-  asset: string;
+export type ProductType = {
+  url: string;
+  productName: string;
+  brand: string;
+  description: string;
+  price: number;
 };
 
 const Detail: React.FunctionComponent = () => {
-  const context=useContext(DataContext.DataContext);
-  const selected =context.selectedCard
+  const context = useContext(DataContext.DataContext);
+  const selected = context.selectedProduct;
   return (
     <React.Fragment>
-    <Headline text={"Detail"}></Headline>
-    <Card>
-      <Character  playerName={selected.playerName} realName={selected.realName} asset={selected.asset}/>
-    </Card>
+      <Headline text={'Detail'}></Headline>
+      <Card>
+        <Product
+          url={selected.url}
+          productName={selected.productName}
+          brand={selected.brand}
+          description={selected.description}
+          price={selected.price}
+        />
+      </Card>
     </React.Fragment>
   );
 };

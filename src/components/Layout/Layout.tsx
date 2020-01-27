@@ -1,8 +1,8 @@
-import React from "react";
-import css from "./Layout.scss";
-import Control from "../Control/Control";
-import Detail from "../Detail/Detail";
-import Overview from "../Overview/Overview";
+import React from 'react';
+import css from './Layout.scss';
+import Control from '../Control/Control';
+import Detail from '../Detail/Detail';
+import Overview from '../Overview/Overview';
 
 const Layout: React.FunctionComponent = () => {
   return (

@@ -1,21 +1,18 @@
-import React, { useContext } from "react";
-import Button from "../Button/Button";
-import Card from "../Card/Card";
-import css from "./Control.scss";
-import classNames from "classnames";
-import Headline from "../Headline/Headline";
-import DataContext from "../../data/Context";
+import React, { useContext } from 'react';
+import Button from '../Button/Button';
+import Card from '../Card/Card';
+import css from './Control.scss';
+import Headline from '../Headline/Headline';
+import DataContext from '../../data/Context';
 
 const Control: React.FunctionComponent = () => {
   const context = useContext(DataContext.DataContext);
   function sortAsc() {
     context.sortContextAsc();
-
   }
 
   function sortDesc() {
     context.sortContextDesc();
- 
   }
 
   function submit() {
@@ -23,10 +20,9 @@ const Control: React.FunctionComponent = () => {
     console.log(sub);
   }
 
-
   return (
     <React.Fragment>
-      <Headline text={"Control"}></Headline>
+      <Headline text={'Control'}></Headline>
       <Card>
         <nav className={css.nav}>
           <Button className={css.sortAsc} onClick={sortAsc}>
