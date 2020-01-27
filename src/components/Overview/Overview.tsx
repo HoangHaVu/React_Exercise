@@ -33,6 +33,7 @@ const Overview: React.FunctionComponent = () => {
                     brand={prod.brand}
                     description={prod.description}
                     price={prod.price}
+                    detail={false}
                   />
                 </Card>
               </div>

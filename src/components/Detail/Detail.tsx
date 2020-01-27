@@ -25,6 +25,7 @@ const Detail: React.FunctionComponent = () => {
           brand={selected.brand}
           description={selected.description}
           price={selected.price}
+          detail={true}
         />
       </Card>
     </React.Fragment>

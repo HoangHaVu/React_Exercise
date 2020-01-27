@@ -7,19 +7,20 @@ interface ProductProps {
   brand: string;
   description: string;
   price: number;
+  detail: boolean;
 }
 
-const Product: React.FunctionComponent<ProductProps> = ({ url, productName, brand, description, price }) => {
+const Product: React.FunctionComponent<ProductProps> = ({ url, productName, brand, description, price, detail }) => {
   return (
-    <React.Fragment>
-      <img src={url} alt="Product" />
-      <ul className={css.list}>
-        <li>{productName}</li>
-        <li>{brand}</li>
-        <li>Price: {price}</li>
-        <li>{description}</li>
-      </ul>
-    </React.Fragment>
+    <div className={css.productWrapper}>
+      <div className={css.imagewrapper}>
+        <img src={url} alt="Product" />
+      </div>
+      <p className={css.productName}>{productName}</p>
+      <p className={css.brand}>{brand}</p>
+      <p className={css.price}>{price}</p>
+      {detail && <p className={css.description}>{description}</p>}
+    </div>
   );
 };
 export default Product;
