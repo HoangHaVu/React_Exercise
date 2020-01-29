@@ -34,6 +34,8 @@ interface ContextProps {
   selectProductContext: Function;
   selectedProduct: ProductType;
 }
+const filltext =
+  'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam  ';
 
 const defaultDetail: ProductType = {
   url: '/no_picture.png',
@@ -57,9 +59,9 @@ const Provider: React.FunctionComponent<ContextProps> = ({ children }) => {
   const [state, newData] = useState([]);
   const [selectedProductState, SelectedProduct] = useState<ProductType>({
     url: '/no_picture.png',
-    productName: 'asdas',
-    brand: 'asdasd',
-    description: 'asdasdasd',
+    productName: 'default',
+    brand: 'default',
+    description: filltext,
     price: 0,
   });
   const client = useApolloClient();

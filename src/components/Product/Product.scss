@@ -18,7 +18,7 @@ img {
   align-items: center; //vertikale Anordnung ( in die Höhe )
   justify-content: center; // horizontale Anordnung ( in die Breite )
   position: relative;
-  background-color:whitesmoke;
+  background-color: whitesmoke;
   margin-bottom: 1rem;
   &::before {
     display: block;
@@ -26,9 +26,11 @@ img {
     width: 100%;
     padding-top: 100%;
   }
-  .isDetail & {  //ist dasselbe wie das unten auskommentierte
-    &::before {     //ist halt besser lesbar und sagt ja wenn es diese Klasse gibt   
-      padding-top: 50%;//dann soll das jeweilige attribut verändert werden
+  .isDetail & {
+    //ist dasselbe wie das unten auskommentierte
+    &::before {
+      //ist halt besser lesbar und sagt ja wenn es diese Klasse gibt
+      padding-top: 50%; //dann soll das jeweilige attribut verändert werden
     }
   }
 }
@@ -39,24 +41,24 @@ img {
 //     }
 //   }
 // }
-.product{
-font-family: Verdana, Geneva, Tahoma, sans-serif;
-overflow: hidden;
-text-overflow: ellipsis;
-background-color: white;
-padding: 1rem;
-&:hover{
-  .imagewrapper{
-    background-color: white;
+.product {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: white;
+  padding: 1rem;
+  &:hover {
+    .imagewrapper {
+      background-color: white;
     }
     box-shadow: 3px 3px 5px 6px #ccc;
-    overflow: visible;  
-  }  
+    overflow: visible;
+  }
 }
 
-.isDetail{
-  &:hover{
-    .imagewrapper{
+.isDetail {
+  &:hover {
+    .imagewrapper {
       background-color: whitesmoke;
     }
     box-shadow: none;
@@ -70,7 +72,7 @@ padding: 1rem;
 }
 
 .brand {
-  color:darkgrey ;
+  color: darkgrey;
   text-align: center;
 }
 
