@@ -5,11 +5,3 @@
   grid-template-rows: repeat(4, 1fr);
 }
 
-.card {
-  &:hover {
-    background-color: white;
-    color: gray;
-    font-size: 16px;
-    align-content: center;
-  }
-}

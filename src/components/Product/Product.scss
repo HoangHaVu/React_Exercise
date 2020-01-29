@@ -9,13 +9,16 @@ img {
   padding: 10px;
   box-sizing: border-box; //Border box nimmt Inhalt wie auch andere Attribute wie margin und padding mit in Betracht
   //Content Box nimmt nur den Content selbst mit in Betracht
+  .productWide & {
+    padding: 20px;
+  }
 }
 .imagewrapper {
   display: flex;
   align-items: center; //vertikale Anordnung ( in die Höhe )
   justify-content: center; // horizontale Anordnung ( in die Breite )
   position: relative;
-  background-color: red;
+  background-color:whitesmoke;
   margin-bottom: 1rem;
   &::before {
     display: block;
@@ -23,16 +26,12 @@ img {
     width: 100%;
     padding-top: 100%;
   }
-  .productWide & {  //ist dasselbe wie das unten auskommentierte
-    &::before {     //ist halt besser lesbar und sagt ja wenn es diese Klasse gibt 
+  .isDetail & {  //ist dasselbe wie das unten auskommentierte
+    &::before {     //ist halt besser lesbar und sagt ja wenn es diese Klasse gibt   
       padding-top: 50%;//dann soll das jeweilige attribut verändert werden
     }
   }
 }
-.product {
-
-}
-
 // .productWide {
 //   .imagewrapper {
 //     &::before {
@@ -40,15 +39,46 @@ img {
 //     }
 //   }
 // }
+.product{
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+overflow: hidden;
+text-overflow: ellipsis;
+background-color: white;
+padding: 1rem;
+&:hover{
+  .imagewrapper{
+    background-color: white;
+    }
+    box-shadow: 3px 3px 5px 6px #ccc;
+    overflow: visible;  
+  }  
+}
+
+.isDetail{
+  &:hover{
+    .imagewrapper{
+      background-color: whitesmoke;
+    }
+    box-shadow: none;
+  }
+}
 
 .productName {
+  text-align: center;
+  font-size: 20px;
+  font-weight: lighter;
 }
 
 .brand {
+  color:darkgrey ;
+  text-align: center;
 }
 
 .price {
+  font-weight: bold;
+  text-align: center;
 }
 
 .description {
+  word-break: break-all;
 }

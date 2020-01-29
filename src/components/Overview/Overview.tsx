@@ -26,16 +26,14 @@ const Overview: React.FunctionComponent = () => {
                   context.selectProductContext(prod);
                 }}
               >
-                <Card>
-                  <Product
-                    url={prod.url}
-                    productName={prod.productName}
-                    brand={prod.brand}
-                    description={prod.description}
-                    price={prod.price}
-                    isDetail={false}
-                  />
-                </Card>
+                <Product
+                  url={prod.url}
+                  productName={prod.productName}
+                  brand={prod.brand}
+                  description={prod.description}
+                  price={prod.price}
+                  isDetail={false}
+                />
               </div>
             );
           })}
