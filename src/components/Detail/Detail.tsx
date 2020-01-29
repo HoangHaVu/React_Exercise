@@ -25,7 +25,7 @@ const Detail: React.FunctionComponent = () => {
           brand={selected.brand}
           description={selected.description}
           price={selected.price}
-          detail={true}
+          isDetail={true}
         />
       </Card>
     </React.Fragment>

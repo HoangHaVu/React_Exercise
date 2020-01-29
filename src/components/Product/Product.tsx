@@ -1,5 +1,6 @@
 import React from 'react';
 import css from './Product.scss';
+import classNames from 'classnames';
 
 interface ProductProps {
   url: string;
@@ -7,20 +8,22 @@ interface ProductProps {
   brand: string;
   description: string;
   price: number;
-  detail: boolean;
+  isDetail: boolean;
 }
 
-const Product: React.FunctionComponent<ProductProps> = ({ url, productName, brand, description, price, detail }) => {
+const Product: React.FunctionComponent<ProductProps> = ({ url, productName, brand, description, price, isDetail }) => {
+  const styles = classNames(css.product, { [css.productWide]: isDetail });
   return (
-    <div className={css.productWrapper}>
+    <div className={styles}>
       <div className={css.imagewrapper}>
         <img src={url} alt="Product" />
       </div>
       <p className={css.productName}>{productName}</p>
       <p className={css.brand}>{brand}</p>
       <p className={css.price}>{price}</p>
-      {detail && <p className={css.description}>{description}</p>}
+      {isDetail && <p className={css.description}>{description}</p>}
     </div>
   );
 };
+
 export default Product;

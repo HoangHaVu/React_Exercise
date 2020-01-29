@@ -1,20 +1,17 @@
-
 img {
-    width:100%;
-    height:100%;
-    position: absolute;
-    //top:50%;
-    //left:50%; faengt jeweils bei der Mitte der Box an
-    //transform:translate(-50%,-50%); verschiebt den Inhalt wieder zentriert zurueck
-    object-fit: contain;
-    padding:10px;
-    box-sizing:border-box; //Border box nimmt Inhalt wie auch andere Attribute wie margin und padding mit in Betracht
-                           //Content Box nimmt nur den Content selbst mit in Betracht
-    
-    
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  //top:50%;
+  //left:50%; faengt jeweils bei der Mitte der Box an
+  //transform:translate(-50%,-50%); verschiebt den Inhalt wieder zentriert zurueck
+  object-fit: contain;
+  padding: 10px;
+  box-sizing: border-box; //Border box nimmt Inhalt wie auch andere Attribute wie margin und padding mit in Betracht
+  //Content Box nimmt nur den Content selbst mit in Betracht
 }
-.imagewrapper{
-  display:flex;
+.imagewrapper {
+  display: flex;
   align-items: center; //vertikale Anordnung ( in die Höhe )
   justify-content: center; // horizontale Anordnung ( in die Breite )
   position: relative;
@@ -22,24 +19,36 @@ img {
   margin-bottom: 1rem;
   &::before {
     display: block;
-    content:'';
+    content: '';
     width: 100%;
-    padding-top:  100%;
+    padding-top: 100%;
+  }
+  .productWide & {  //ist dasselbe wie das unten auskommentierte
+    &::before {     //ist halt besser lesbar und sagt ja wenn es diese Klasse gibt 
+      padding-top: 50%;//dann soll das jeweilige attribut verändert werden
+    }
   }
 }
-
-.productName{
-
-}
-
-.brand{
+.product {
 
 }
 
-.price{
+// .productWide {
+//   .imagewrapper {
+//     &::before {
+//       padding-top: 50%;
+//     }
+//   }
+// }
 
+.productName {
 }
 
-.description{
+.brand {
+}
 
+.price {
+}
+
+.description {
 }
