@@ -17,7 +17,6 @@ const Detail: React.FunctionComponent = () => {
   const selected = context.selectedProduct;
   return (
     <React.Fragment>
-      <Headline text={'Detail'}></Headline>
       <Card>
         <Product
           url={selected.url}

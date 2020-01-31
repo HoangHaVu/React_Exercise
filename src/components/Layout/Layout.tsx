@@ -5,6 +5,8 @@ import Detail from '../Detail/Detail';
 import Overview from '../Overview/Overview';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import Carousel from '../Carousel/Carousel';
+import { CarouselProvider } from 'pure-react-carousel';
 
 const Layout: React.FunctionComponent = () => {
   return (
@@ -13,6 +15,7 @@ const Layout: React.FunctionComponent = () => {
         <Header />
       </div>
       <div className={css.detail}>
+        <Carousel />
         <Detail />
       </div>
       <div className={css.control}>

@@ -22,7 +22,6 @@ const Control: React.FunctionComponent = () => {
 
   return (
     <React.Fragment>
-      <Headline text={'Control'}></Headline>
       <Card>
         <nav className={css.nav}>
           <Button className={css.sortAsc} onClick={sortAsc}>
