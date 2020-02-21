@@ -8,23 +8,17 @@ const Header: React.FunctionComponent = () => {
       <div className={css.imagewrapper}>
         <img src="/logo.png" alt="Logo" />
       </div>
-      <ul>
-        <li>
-          <Link href="/ReleaseCalender" as="/ReleaseCalender">
-            <a>ReleaseCalender</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/News" as="/News">
-            <a>News</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/Styles" as="/Styles">
-            <a>Styles</a>
-          </Link>
-        </li>
-      </ul>
+      <div className={css.links}>
+        <Link href="/ReleaseCalender" as="/ReleaseCalender">
+          <a>ReleaseCalender</a>
+        </Link>
+        <Link href="/News" as="/News">
+          <a>News</a>
+        </Link>
+        <Link href="/Styles" as="/Styles">
+          <a>Styles</a>
+        </Link>
+      </div>
     </div>
   );
 };
