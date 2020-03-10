@@ -11,6 +11,9 @@
 #test
 .tesitgit
 
+# workspace
+nextjs.code-workspace
+
 # Icon must end with two \r
 Icon
 
