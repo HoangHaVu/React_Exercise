@@ -9,7 +9,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint \"**/*.{tsx,ts,js,json}\" && stylelint \"**/*.scss\" ",
-    "prettier": "prettier --write \"**/*.{tsx,js,scss,json}\""
+    "prettier": "prettier --write \"**/*.{tsx,js,scss,json}\"",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "author": "",
   "license": "ISC",
@@ -30,10 +32,16 @@
     "react-dom": "16.12.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@storybook/addon-actions": "^5.3.14",
+    "@storybook/addon-links": "^5.3.14",
+    "@storybook/addons": "^5.3.14",
+    "@storybook/react": "^5.3.14",
     "@types/node": "13.1.6",
     "@types/react": "16.9.17",
     "@typescript-eslint/eslint-plugin": "2.7.0",
     "@typescript-eslint/parser": "2.7.0",
+    "babel-loader": "^8.0.6",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.6.0",
     "eslint-plugin-json": "^2.0.1",
