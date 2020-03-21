@@ -3,8 +3,8 @@ import css from './Layout.scss';
 import Control from '../Control/Control';
 import Detail from '../Detail/Detail';
 import Overview from '../Overview/Overview';
-import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
 
 const Layout: React.FunctionComponent = () => {
   return (
